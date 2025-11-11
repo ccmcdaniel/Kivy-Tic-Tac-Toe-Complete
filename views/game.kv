@@ -11,21 +11,21 @@
             size_hint: (1, 0.10)
 
             PlayerScoreHUD:
-                player: 'Player 1'
-                score: '0'
+                name: f'{root.player1_name} (x)'
+                score: root.player1_score
                 bg_color: hex("#FBB6B6")
                 size_hint: (0.25, 1)
                 bottom_left: 0
                 bottom_right: 20
 
             Label:
-                text: "Player 1"
+                text: f"{root.active_player_name}\'s turn"
                 font_size: '30sp'
                 size_hint: (0.5, 1)
 
             PlayerScoreHUD:
-                player: 'Player 2'
-                score: '0'
+                name: f'{root.player2_name} (o)'
+                score: root.player2_score
                 bg_color: hex("#B6C0FB")
                 size_hint: (0.25, 1)
                 bottom_left: 20

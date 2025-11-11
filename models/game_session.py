@@ -99,11 +99,15 @@ class GameSession:
 
     def SetStartingPlayer(self, num):
         if(num == 1):
-            self.starting_player = self.player1
+            self.active_player = self.player1
         elif(num == 2):
-            self.starting_player = self.player2
+            self.active_player = self.player2
 
-
+    def SwapPlayer(self):
+        if(self.active_player == self.player1):
+            self.active_player = self.player2
+        else:
+            self.active_player = self.player1
 
 
 
