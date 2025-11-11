@@ -1,0 +1,30 @@
+#:kivy 1.0
+#:import hex kivy.utils.get_color_from_hex
+
+<SetupPlayersScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 30
+
+        Label:
+            text: 'Enter your Name'
+            font_size: '40sp'
+            size_hint: (1, 0.5)
+
+        PlayerTextInput:
+            hint_text: 'Player 1 Name'
+
+        PlayerTextInput:
+            hint_text: 'Player 2 Name'
+
+        MainMenuButton:
+            text: "Next"
+
+            on_press: app.root.current = 'coin_toss'
+
+        # empty space
+        BoxLayout:
+            orientation: 'vertical'
+
+

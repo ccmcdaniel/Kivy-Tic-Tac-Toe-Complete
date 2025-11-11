@@ -1,0 +1,51 @@
+#:kivy 1.0
+#:import hex kivy.utils.get_color_from_hex
+
+<GameResultScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 40
+
+        Label:
+            text: "Player _____ Wins!"
+            font_size: '30sp'
+            size_hint: (0.5, 1)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 60
+            size_hint: (1, 0.10)
+
+            PlayerScoreHUD:
+                player: 'Player 1'
+                score: '0'
+                size_hint: (0.25, 1)
+                bottom_left: 20
+                bottom_right: 20
+                top_left: 20
+                top_right: 20
+
+
+            PlayerScoreHUD:
+                player: 'Player 2'
+                score: '0'
+                size_hint: (0.25, 1)
+                bottom_left: 20
+                bottom_right: 20
+                top_left: 20
+                top_right: 20
+
+
+        RelativeLayout:
+            size_hint: (1, 0.25)
+
+            MainMenuButton:
+                text: 'New Game'
+                on_press: app.root.current = 'game'
+
+            MainMenuButton:
+                text: 'Main Menu'
+                bg_color_normal: hex("#E32020")
+                bg_color_pressed: hex("#e28f8fff")
+
+                on_press: app.root.current = 'main_menu'

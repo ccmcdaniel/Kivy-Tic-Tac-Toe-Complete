@@ -1,0 +1,13 @@
+#:kivy 1.0
+#:import hex kivy.utils.get_color_from_hex
+
+<PlayerTextInput@TextInput>:
+    size_hint: (0.8, None)
+    font_size: '25sp'
+    height: 60
+
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    # Needed to center-align text box both vertically and horizonatally
+    padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+    halign: 'center'

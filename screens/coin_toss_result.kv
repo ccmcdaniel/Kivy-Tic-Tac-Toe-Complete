@@ -1,0 +1,35 @@
+#:kivy 1.0
+#:import hex kivy.utils.get_color_from_hex
+
+<CoinTossResultScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 30
+
+        Label:
+            text: 'Coin Toss Result'
+            font_size: '40sp'
+            size_hint: (1, 0.5)
+
+        CoinIcon:
+            text: 'Heads'
+            group: 'coin'
+            size_hint: (0.5, None)
+
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        Label:
+            text: 'Player _____ Wins the coin toss!'
+            font_size: '40sp'
+            size_hint: (1, None)
+            height: '150sp'
+
+        MainMenuButton:
+            text: 'Start Game'
+            on_press: app.root.current = 'game'
+
+
+        # empty space
+        BoxLayout:
+            orientation: 'vertical'

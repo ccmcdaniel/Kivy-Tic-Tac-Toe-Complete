@@ -1,0 +1,47 @@
+#:kivy 1.0
+#:import hex kivy.utils.get_color_from_hex
+
+<GameScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 40
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, 0.10)
+
+            PlayerScoreHUD:
+                player: 'Player 1'
+                score: '0'
+                bg_color: hex("#FBB6B6")
+                size_hint: (0.25, 1)
+                bottom_left: 0
+                bottom_right: 20
+
+            Label:
+                text: "Player 1"
+                font_size: '30sp'
+                size_hint: (0.5, 1)
+
+            PlayerScoreHUD:
+                player: 'Player 2'
+                score: '0'
+                bg_color: hex("#B6C0FB")
+                size_hint: (0.25, 1)
+                bottom_left: 20
+                bottom_right: 0
+
+        BoxLayout:
+            size_hint: (1, 0.6)
+            
+            GameBoard:
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        RelativeLayout:
+            size_hint: (1, 0.25)
+
+            MainMenuButton:
+                text: 'Confirm'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                on_press: app.root.current = "game_result"

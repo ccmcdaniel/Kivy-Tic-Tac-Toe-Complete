@@ -1,0 +1,25 @@
+#:kivy 1.0
+
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<ViewManager>:
+    transition: FadeTransition()
+
+    MainMenuScreen:
+        name: 'main_menu'
+
+    SetupPlayersScreen:
+        name: 'setup_players'
+
+    CoinTossScreen:
+        name: 'coin_toss'
+
+    CoinTossResultScreen:
+        name: 'coin_toss_result'
+
+    GameScreen:
+        name: 'game'
+
+    GameResultScreen:
+        name: 'game_result'
+

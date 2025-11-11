@@ -1,0 +1,22 @@
+#:kivy 1.0
+#:import hex kivy.utils.get_color_from_hex
+
+<CoinIcon>:
+    # set the height of the button to mirror the width.
+    size_hint: (1, None)
+    height: self.width
+
+    background_normal: ''
+    background_down: ''
+    background_color: (0, 0, 0, 0)
+
+    font_size: '40sp'
+    color: hex("#000000ff")
+
+    canvas.before:
+        Color:
+            rgba: root.bg_color_normal if self.state == 'normal' else root.bg_color_pressed
+
+        Ellipse:
+            pos: self.pos
+            size: self.size

@@ -1,0 +1,23 @@
+#:kivy 1.0
+#:import hex kivy.utils.get_color_from_hex
+
+<MainMenuButton@Button>:
+    size_hint: (0.8, None)
+    font_size: '30sp'
+    height: 80
+
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    background_normal: ''
+    background_down: ''
+    background_color: hex("#00000000")
+    color: hex('#FFFFFF')
+
+    canvas.before:
+        Color:
+            rgba: root.bg_color_normal if self.state == 'normal' else root.bg_color_pressed
+        
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [15]

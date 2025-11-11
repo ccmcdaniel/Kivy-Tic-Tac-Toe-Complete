@@ -1,0 +1,29 @@
+#:kivy 1.0
+#:import hex kivy.utils.get_color_from_hex
+
+<BoardTile>:
+    font_size: '30sp'
+    size_hint: (1, None)
+    height: self.width
+
+    background_normal: ''
+    background_down: ''
+    background_color: hex("#00000000")
+    color: hex('#FFFFFF')
+
+    canvas.before:
+        Color:
+            rgba: hex("#D9D9D9") if self.state == 'normal' else hex("#acacacff")
+        
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [5]
+
+
+<GameBoard>:
+    rows: 3
+    cols: 3
+    spacing: 10
+    padding: 20
+
