@@ -4,8 +4,17 @@ from kivy.core.window import Window
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
-from screens import *
 from widgets.widgets import *
+
+# *************Controllers**********************
+from controllers.main_menu import MainMenuScreen
+from controllers.setup_players import SetupPlayersScreen
+from controllers.coin_toss import *
+from controllers.coin_toss_result import *
+from controllers.game_screen import *
+from controllers.game_result import *
+
+# ************Models****************************
 
 window_scale = 1.0
 default_window_size = (414, 896)
@@ -29,7 +38,7 @@ def load_kv_subdir(dir_name):
 
 if __name__ == '__main__':
     # Loads all KV files in the "screens" folder
-    load_kv_subdir('screens')
+    load_kv_subdir('views')
     load_kv_subdir('widgets')
 
     app = TicTacToeApp()
