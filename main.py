@@ -9,12 +9,13 @@ from widgets.widgets import *
 # *************Controllers**********************
 from controllers.main_menu import MainMenuScreen
 from controllers.setup_players import SetupPlayersScreen
-from controllers.coin_toss import *
+from controllers.coin_toss import CoinTossScreen
 from controllers.coin_toss_result import *
 from controllers.game_screen import *
 from controllers.game_result import *
 
 # ************Models****************************
+from models.game_session import GameSession
 
 window_scale = 1.0
 default_window_size = (414, 896)
@@ -26,8 +27,11 @@ class ViewManager(ScreenManager):
     pass
 
 class TicTacToeApp(App):
-    def build(slef):
-        return ViewManager()
+    def build(self):
+        self.game_session = GameSession()
+        self.view_manager = ViewManager()
+
+        return self.view_manager
     
 # used to load KV files from sub directories.
 def load_kv_subdir(dir_name):

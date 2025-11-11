@@ -14,14 +14,15 @@
 
         PlayerTextInput:
             hint_text: 'Player 1 Name'
+            on_text: root.player1_name = self.text
 
         PlayerTextInput:
             hint_text: 'Player 2 Name'
+            on_text: root.player2_name = self.text
 
         MainMenuButton:
             text: "Next"
-
-            on_press: app.root.current = 'coin_toss'
+            on_press: root.set_players()
 
         # empty space
         BoxLayout:

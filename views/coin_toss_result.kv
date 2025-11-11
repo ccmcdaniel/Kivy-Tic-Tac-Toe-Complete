@@ -13,16 +13,20 @@
             size_hint: (1, 0.5)
 
         CoinIcon:
-            text: 'Heads'
+            text: root.face_up_name
             group: 'coin'
             size_hint: (0.5, None)
 
             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
         Label:
-            text: 'Player _____ Wins the coin toss!'
+            text: f'{root.winning_player_name} wins the coin toss!'
             font_size: '40sp'
             size_hint: (1, None)
+            text_size: self.width, None
+            height: self.texture_size[1]
+            halign: 'center'
+            valign: 'middle'
             height: '150sp'
 
         MainMenuButton:

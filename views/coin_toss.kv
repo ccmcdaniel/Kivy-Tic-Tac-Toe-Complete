@@ -2,6 +2,9 @@
 #:import hex kivy.utils.get_color_from_hex
 
 <CoinTossScreen>:
+    btnHeads: heads
+    btnTails: tails
+
     BoxLayout:
         orientation: 'vertical'
         padding: 20
@@ -13,7 +16,7 @@
             size_hint: (1, 0.5)
 
         Label:
-            text: 'Player 1, select Heads or Tails'
+            text: f'{root.player1_name}, select Heads or Tails'
             font_size: '25sp'
             size_hint: (1, 0.5)
 
@@ -22,18 +25,20 @@
             spacing: 20
 
             CoinIcon:
+                id: heads
                 text: 'Heads'
                 group: 'coin'
                 size_hint: (0.7, None)
 
             CoinIcon:
+                id: tails
                 text: "Tails"
                 group: 'coin'
                 size_hint: (0.7, None)
 
         MainMenuButton:
             text: 'Toss Coin'
-            on_press: app.root.current = 'coin_toss_result'
+            on_press: root.on_click_confirm_selection()
 
 
         # empty space
