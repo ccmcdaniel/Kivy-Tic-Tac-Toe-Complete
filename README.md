@@ -1,4 +1,4 @@
-# Tic Tac Toe Front-End Demo
+# Tic Tac Toe Full Implementation
 
 This project is a full demonstration of a MPA implemented using the MVC design model.
 
