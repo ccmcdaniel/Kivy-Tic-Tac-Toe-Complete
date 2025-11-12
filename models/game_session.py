@@ -94,6 +94,8 @@ class Board:
 class GameSession:
     player1 = None
     player2 = None
+    active_player = None
+    game_over = False
 
     board = Board()
 
@@ -108,6 +110,64 @@ class GameSession:
             self.active_player = self.player2
         else:
             self.active_player = self.player1
+
+    def CheckActivePlayer(self, player_num):
+        if(player_num == 1 and self.active_player == self.player1):
+            return True
+        
+        elif(player_num == 2 and self.active_player == self.player2):
+            return True
+        
+        else:
+            return False
+        
+    def MarkTile(self, row, col):
+
+        if(self.active_player == self.player1):
+            token = 'x'
+        else:
+            token = 'o'
+        
+        self.board.SetTile(row, col, token)
+
+    def CheckWinner(self):
+        result = self.board.CheckWinner()
+
+        # Player 1 Won
+        if(result == 'x'):
+            return True
+        elif(result == 'o'):
+            return True
+        else:
+            return False
+        
+    def GetWinnerName(self):
+        result = self.board.CheckWinner()
+
+        # Player 1 Won
+        if(result == 'x'):
+            return self.player1.name
+        elif(result == 'o'):
+            return self.player2.name
+        else:
+            return ""
+        
+    def ConcludeGame(self):
+        if (self.game_over == True):
+            return
+        
+        result = self.board.CheckWinner()
+
+        # Player 1 Won
+        if(result == 'x'):
+            self.player1.score += 1
+            self.game_over = True
+        elif(result == 'o'):
+            self.player2.score += 1
+            self.game_over = True
+
+        
+
 
 
 

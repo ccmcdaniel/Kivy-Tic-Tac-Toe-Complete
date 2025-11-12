@@ -2,6 +2,18 @@
 #:import hex kivy.utils.get_color_from_hex
 
 <GameScreen>:
+    tile_0_0: board_tile_0_0
+    tile_0_1: board_tile_0_1
+    tile_0_2: board_tile_0_2
+
+    tile_1_0: board_tile_1_0
+    tile_1_1: board_tile_1_1
+    tile_1_2: board_tile_1_2
+
+    tile_2_0: board_tile_2_0
+    tile_2_1: board_tile_2_1
+    tile_2_2: board_tile_2_2
+    
     BoxLayout:
         orientation: 'vertical'
         spacing: 40
@@ -34,14 +46,60 @@
         BoxLayout:
             size_hint: (1, 0.6)
             
-            GameBoard:
+            GridLayout:
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                rows: 3
+                cols: 3
+                spacing: 10
+                padding: 20
 
-        RelativeLayout:
-            size_hint: (1, 0.25)
+                BoardTile:
+                    id: board_tile_0_0
+                    tile_row: 0
+                    tile_col: 0
+                    on_press: root.on_press_tile(self)
+                BoardTile:
+                    id: board_tile_0_1
+                    tile_row: 0
+                    tile_col: 1
+                    on_press: root.on_press_tile(self)
+                BoardTile:
+                    id: board_tile_0_2
+                    tile_row: 0
+                    tile_col: 2
+                    on_press: root.on_press_tile(self)
 
-            MainMenuButton:
-                text: 'Confirm'
-                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                BoardTile:
+                    id: board_tile_1_0
+                    tile_row: 1
+                    tile_col: 0
+                    on_press: root.on_press_tile(self)
+                BoardTile:
+                    id: board_tile_1_1
+                    tile_row: 1
+                    tile_col: 1
+                    on_press: root.on_press_tile(self)
+                BoardTile:
+                    id: board_tile_1_2
+                    tile_row: 1
+                    tile_col: 2
+                    on_press: root.on_press_tile(self)
 
-                on_press: app.root.current = "game_result"
+                BoardTile:
+                    id: board_tile_2_0
+                    tile_row: 2
+                    tile_col: 0
+                    on_press: root.on_press_tile(self)
+                BoardTile:
+                    id: board_tile_2_1
+                    tile_row: 2
+                    tile_col: 1
+                    on_press: root.on_press_tile(self)
+                BoardTile:
+                    id: board_tile_2_2
+                    tile_row: 2
+                    tile_col: 2
+                    on_press: root.on_press_tile(self)
+
+
+

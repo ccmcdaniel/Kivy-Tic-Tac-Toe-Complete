@@ -31,11 +31,5 @@ class PlayerScoreHUD(BoxLayout):
 
 
 class BoardTile(ToggleButton):
-    pass
-
-class GameBoard(GridLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        
-        for i in range(9):
-            self.add_widget(BoardTile())
+    tile_row = NumericProperty(0)
+    tile_col = NumericProperty(0)
