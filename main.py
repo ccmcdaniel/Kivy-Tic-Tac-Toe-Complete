@@ -21,8 +21,6 @@ window_scale = 1.0
 default_window_size = (414, 896)
 Window.size = default_window_size
 
-Builder.load_file('tic_tac_toe_app.kv')
-
 class ViewManager(ScreenManager):
     pass
 
