@@ -1,6 +1,6 @@
 # Tic Tac Toe Front-End Demo
 
-This project is non-functional demonstration of Multi-Page Application implementation using the Tic-Tac-Toe app design we completed in the Intro to GUI Development chapter.  Note that a later version of this will feature a full implementation.
+This project is a full demonstration of a MPA implemented using the MVC design model.
 
 ## Dependencies
 
