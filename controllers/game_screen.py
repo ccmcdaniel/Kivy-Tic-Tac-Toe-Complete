@@ -25,12 +25,28 @@ class GameScreen(Screen):
     tile_2_2 = ObjectProperty()
     
 
-    def setup_board(self):
+    def setup_screen(self):
+        # pull data from game_session model to refresh game information
         app = App.get_running_app()
 
         self.player1_name = app.game_session.player1.name
         self.player2_name = app.game_session.player2.name
         self.active_player_name = app.game_session.active_player.name
+
+        self.player1_score = f'{app.game_session.player1.score}'
+        self.player2_score = f'{app.game_session.player2.score}'
+
+        # reset board
+        tiles = (
+            self.tile_0_0, self.tile_0_1, self.tile_0_2, 
+            self.tile_1_0, self.tile_1_1, self.tile_1_2, 
+            self.tile_2_0, self.tile_2_1, self.tile_2_2, 
+        )
+
+        for tile in tiles:
+            tile.disabled = False
+            tile.state = "normal"
+            tile.text = ''
 
 
     def on_press_tile(self, tile_clicked):
@@ -53,17 +69,18 @@ class GameScreen(Screen):
         if(app.game_session.CheckWinner()):
             app.game_session.ConcludeGame()
             self.manager.current = "game_result"
+            self.manager.current_screen.setup_screen()
 
         # If all tiles are disabled, game is over and a tie occurred
         elif(self.check_all_disabled()):
             self.manager.current = "game_result"
+            self.manager.current_screen.setup_screen()
         
         # if game is still in session, then swap the player and continue
         else:    
             app.game_session.SwapPlayer()
             self.active_player_name = app.game_session.active_player.name
             
-
 
     # checks to see if all tiles are disabled.
     def check_all_disabled(self):
@@ -78,7 +95,4 @@ class GameScreen(Screen):
                 return False
         
         return True
-
-
-
 

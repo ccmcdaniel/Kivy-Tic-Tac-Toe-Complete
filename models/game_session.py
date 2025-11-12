@@ -166,6 +166,25 @@ class GameSession:
             self.player2.score += 1
             self.game_over = True
 
+    def StartNewGame(self):
+        self.board.ResetBoard()
+        self.game_over = False
+
+        winner = self.CheckWinner()
+
+        # determine the loser, which will go first on the new game.
+        if(winner == 'x'):
+            self.active_player = self.player2
+        elif(winner == 'o'):
+            self.active_player = self.player1
+        else: # if tie, coin toss to select starting player
+            import random
+            coin_toss = random.randint(0, 1)
+            if(coin_toss == 0):
+                self.active_player = self.player1
+            else:
+                self.active_player = self.player2
+
         
 
 

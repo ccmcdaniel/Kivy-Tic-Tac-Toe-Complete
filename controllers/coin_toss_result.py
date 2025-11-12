@@ -7,4 +7,4 @@ class CoinTossResultScreen(Screen):
 
     def click_start_game(self):
         self.manager.current = 'game'
-        self.manager.current_screen.setup_board()
+        self.manager.current_screen.setup_screen()

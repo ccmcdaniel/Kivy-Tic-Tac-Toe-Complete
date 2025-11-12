@@ -6,6 +6,11 @@ from models.game_session import Player
 class SetupPlayersScreen(Screen):
     player1_name = StringProperty()
     player2_name = StringProperty()
+
+
+    def setup_screen(self):
+        self.player1_name = ""
+        self.player2_name = ""
     
     def set_players(self):
         app = App.get_running_app()
